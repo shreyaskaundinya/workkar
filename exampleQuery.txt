@@ -1,0 +1,7 @@
+const { isLoading, isError, isRefetching, isFetching, data } = useQuery(
+    'members',
+    () =>
+    getDocs(collection(db, 'members')).then((querySnap) => {
+        return Array(...querySnap.docs.map((item) => item.data()));
+    }),
+);
